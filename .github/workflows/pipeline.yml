@@ -1,0 +1,143 @@
+name: Scrape, build and deploy
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Generate dataset
+        run: npm run generate:data
+
+      - name: Commit dataset
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/events.json || true
+          git diff --staged --quiet || git commit -m "chore(data): auto-generate"
+          git push || true
+
+      - name: Deploy to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          if [ -n "$VERCEL_TOKEN" ]; then
+            npx vercel --token "$VERCEL_TOKEN" --prod --yes
+          else
+            echo "No VERCEL_TOKEN set; skipping deploy"
+          fi
+
+name: Nightly scrape and deploy
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '15 3 * * *' # 03:15 UTC nightly
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      # Scrapers are committed in-repo under scrapers/, no cloning needed
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run general crawler
+        run: npm run general:crawl
+
+      - name: Run scrapers (legacy, optional)
+        if: ${{ false }}
+        env:
+          RUN_SCRAPERS: 'true'
+        run: npm run scrape
+
+      - name: Consolidate dataset (fuzzy dedupe)
+        run: DEDUP_FUZZY=true npm run consolidate
+
+      - name: Enrich via JSON-LD (capped)
+        run: npm run enrich:structured
+
+      - name: Geocode events (cached)
+        run: npm run geocode
+
+      - name: Benchmark per-source
+        run: npm run benchmark
+
+      - name: Gold-standard browser tests
+        env:
+          GOLD_SAMPLES_PER_DOMAIN: '2'
+          GOLD_MAX_TOTAL: '24'
+          GOLD_MIN_PASS_RATE: '40'
+          GOLD_FAIL_ON_LOW: 'true'
+        run: npm run gold:test
+
+      - name: Evaluate KPI gates
+        env:
+          GATE_GOLD_MIN: '40'
+          GATE_FAIL_ON_ERROR: 'true'
+        run: npm run gates
+
+      - name: Upload data artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: aggregated-data
+          path: |
+            public/data/events.json
+            chicago_events_master_consolidated*.json
+            reports/benchmark.json
+            reports/gold.json
+            reports/gates.json
+
+      - name: Commit dataset
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/events.json scripts/geocode-cache.json || true
+          git diff --staged --quiet || git commit -m "chore(data): nightly scrape"
+          git push || true
+
+      - name: Deploy to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          if [ -n "$VERCEL_TOKEN" ]; then
+            npx vercel --token "$VERCEL_TOKEN" --prod --yes
+          else
+            echo "No VERCEL_TOKEN secret set; skipping deploy"
+          fi
+
+
