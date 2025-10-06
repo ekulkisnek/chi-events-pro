@@ -33,7 +33,7 @@ export default function MapPage() {
   const [when, setWhen] = useState<'all'|'today'|'week'|'weekend'>('all')
 
   useEffect(() => {
-    fetch('/data/events.json')
+    fetch(`/data/events.json?v=${Date.now()}`)
       .then(r => r.json())
       .then((data) => setEvents(Array.isArray(data) ? data : data.events || []))
       .catch(() => setEvents([]))
