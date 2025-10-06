@@ -1,0 +1,30 @@
+{
+  "name": "chicago-events-aggregator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "scrape": "node scripts/run-scrape.js",
+    "consolidate": "node scripts/run-consolidate.js",
+    "geocode": "node scripts/enrich-geocode.js",
+    "generate:data": "npm run scrape && npm run consolidate && npm run geocode"
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "leaflet": "^1.9.4",
+    "react-leaflet": "^4.2.1",
+    "dayjs": "^1.11.11",
+    "chrono-node": "^2.7.6"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0"
+  }
+}
