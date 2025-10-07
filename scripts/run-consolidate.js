@@ -37,6 +37,32 @@ function hasPlausibleDate(ev) {
   return false
 }
 
+function deriveTimestamp(dateInfo, timeStart) {
+  const now = new Date()
+  const base = String(dateInfo || '') + (timeStart ? ` ${timeStart}` : '')
+  let d = null
+  try { d = chrono.parseDate(base, now) } catch {}
+  if (!d || Math.abs(d.getFullYear() - now.getFullYear()) > 2) {
+    const s = String(dateInfo || '')
+    const mmdd = /\b([01]?\d)[\/-]([0-3]?\d)\b/.exec(s)
+    const monthName = /(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)\.?\s*([0-3]?\d)/i.exec(s)
+    let m = null, day = null
+    if (mmdd) { m = Number(mmdd[1]); day = Number(mmdd[2]) }
+    if (monthName) {
+      const map = {jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,sept:9,oct:10,nov:11,dec:12}
+      m = map[monthName[1].toLowerCase()] || m; day = Number(monthName[2]) || day
+    }
+    if (m && day) {
+      const candidate = new Date(now.getFullYear(), m-1, day)
+      if (candidate.getTime() < now.getTime() - 24*3600*1000) {
+        candidate.setFullYear(candidate.getFullYear() + 1)
+      }
+      d = candidate
+    }
+  }
+  return d ? d.toISOString() : null
+}
+
 function isTrustedChicagoSource(url) {
   try {
     const u = new URL(url)
@@ -77,14 +103,7 @@ const filtered = data
     return true
   })
   // Derive a sortable timestamp
-  .map(e => {
-    let ts = null
-    if (e.date_info) {
-      const parsed = chrono.parseDate(e.date_info + (e.time_start ? ` ${e.time_start}` : ''))
-      if (parsed) ts = parsed.toISOString()
-    }
-    return { ...e, _ts: ts }
-  })
+  .map(e => ({ ...e, _ts: deriveTimestamp(e.date_info, e.time_start) }))
   // Deduplicate again on (title + date_info)
   .filter((e, idx, arr) => {
     const normTitle = String(e.title).toLowerCase().trim()

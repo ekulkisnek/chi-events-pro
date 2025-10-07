@@ -8,9 +8,10 @@
     "event_url": "https://www.choosechicago.com/event/arriott-theatre-announces-spectacular-2025-season-in-celebration-of-upcoming-50th-anniversary/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-02-06T01:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.584Z",
+    "scraped_at": "2025-10-07T23:26:33.933Z",
     "extraction_method": "universal"
   },
   {
@@ -22,9 +23,10 @@
     "event_url": "https://www.choosechicago.com/event/chicago-pizza-pass/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "15",
+    "_ts": "2025-08-06T22:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.602Z",
+    "scraped_at": "2025-10-07T23:26:33.933Z",
     "extraction_method": "universal"
   },
   {
@@ -36,9 +38,10 @@
     "event_url": "https://www.choosechicago.com/event/revolutions/2025-10-04/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "43 – 103",
+    "_ts": "2025-10-05T00:30:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.602Z",
+    "scraped_at": "2025-10-07T23:26:33.933Z",
     "extraction_method": "universal"
   },
   {
@@ -50,9 +53,10 @@
     "event_url": "https://www.choosechicago.com/event/the-lion-king/2025-10-07/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-07T05:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.602Z",
+    "scraped_at": "2025-10-07T23:26:33.933Z",
     "extraction_method": "universal"
   },
   {
@@ -64,9 +68,10 @@
     "event_url": "https://www.choosechicago.com/event/ear-taxi-festival/2025-10-07/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-07T05:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.602Z",
+    "scraped_at": "2025-10-07T23:26:33.933Z",
     "extraction_method": "universal"
   },
   {
@@ -78,177 +83,10 @@
     "event_url": "https://www.choosechicago.com/event/pumpkin-lights-playful-frights/2025-10-07/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-07T05:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.602Z",
-    "extraction_method": "universal"
-  },
-  {
-    "title": "Division Street Farmers Market",
-    "date_info": "2025-10-07T07:00:00-05:00",
-    "time_start": "",
-    "location": "30 W. Division St.",
-    "description": "&lt;p&gt;Fresh seasonal produce, flowers, prepared foods, unique Chicago-made products and rare finds are available at the Division Street Farmers Market.&lt;/p&gt;\\n",
-    "event_url": "https://www.choosechicago.com/event/division-street-farmers-market-2/2025-10-07/",
-    "category": "https://schema.org/OfflineEventAttendanceMode",
-    "price": "0",
-    "source": "universal_extraction",
-    "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.602Z",
-    "extraction_method": "universal"
-  },
-  {
-    "title": "SOAR Farmers Market 2025",
-    "date_info": "2025-10-07T07:00:00-05:00",
-    "time_start": "",
-    "location": "Museum of Contemporary Art Chicago",
-    "description": "&lt;p&gt;About the Event Every Tuesday this summer—rain or shine—you can shop at the SOAR Farmers Market on the MCA Plaza.* Many of our beloved vendors…&lt;/p&gt;\\n",
-    "event_url": "https://www.choosechicago.com/event/soar-farmers-market-2025/2025-10-07/",
-    "category": "https://schema.org/OfflineEventAttendanceMode",
-    "price": "",
-    "source": "universal_extraction",
-    "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.602Z",
-    "extraction_method": "universal"
-  },
-  {
-    "title": "CSI | Materiality in Sculpture: A Dialogue Between Substance and Form",
-    "date_info": "2025-10-07T09:00:00-05:00",
-    "time_start": "",
-    "location": "Evanston Art Center",
-    "description": "&lt;p&gt;Evanston Art Center 2025 Exhibition: CSI | Materiality in Sculpture: A Dialogue Between Substance and Form EXHIBITION DATES: September 27 - November 9, 2025 OPENING…&lt;/p&gt;\\n",
-    "event_url": "https://www.choosechicago.com/event/csi-materiality-in-sculpture-a-dialogue-between-substance-and-form/2025-10-07/",
-    "category": "https://schema.org/OfflineEventAttendanceMode",
-    "price": "0",
-    "source": "universal_extraction",
-    "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.602Z",
-    "extraction_method": "universal"
-  },
-  {
-    "title": "The Forgotten Lives Project",
-    "date_info": "2025-10-07T09:00:00-05:00",
-    "time_start": "",
-    "location": "Evanston Art Center",
-    "description": "&lt;p&gt;The Evanston Art Center (EAC) is excited to welcome the public to The Forgotten Lives Project &nbsp; “I’m a digital collage artist and photographer and…&lt;/p&gt;\\n",
-    "event_url": "https://www.choosechicago.com/event/the-forgotten-lives-project/2025-10-07/",
-    "category": "https://schema.org/OfflineEventAttendanceMode",
-    "price": "0",
-    "source": "universal_extraction",
-    "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.602Z",
-    "extraction_method": "universal"
-  },
-  {
-    "title": "Charting Imaginary Worlds: Why Fantasy and Games Are Inseparable",
-    "date_info": "2025-10-07T09:00:00-05:00",
-    "time_start": "",
-    "location": "Special Collections Research Center Exhibition Gallery",
-    "description": "&lt;p&gt;From Dungeons &amp; Dragons to The Witcher, fantasy has long been a popular theme for games. But the relationship between fantasy and games is longer…&lt;/p&gt;\\n",
-    "event_url": "https://www.choosechicago.com/event/charting-imaginary-worlds-why-fantasy-and-games-are-inseparable/2025-10-07/",
-    "category": "https://schema.org/OfflineEventAttendanceMode",
-    "price": "0",
-    "source": "universal_extraction",
-    "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.602Z",
-    "extraction_method": "universal"
-  },
-  {
-    "title": "By A Thread: Nature&#8217;s Resilience",
-    "date_info": "2025-10-07T10:00:00-05:00",
-    "time_start": "",
-    "location": "Peggy Notebaert Nature Museum",
-    "description": "&lt;p&gt;By A Thread: Nature\\'s Resilience dives into the science of biodiversity and what it takes to protect it—showcasing the research, conservation, and education work happening…&lt;/p&gt;\\n",
-    "event_url": "https://www.choosechicago.com/event/by-a-thread-natures-resilience/2025-10-07/",
-    "category": "https://schema.org/OfflineEventAttendanceMode",
-    "price": "",
-    "source": "universal_extraction",
-    "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.602Z",
-    "extraction_method": "universal"
-  },
-  {
-    "title": "Homeschool Days at PEPPA PIG World of Play Chicago",
-    "date_info": "2025-10-07T10:00:00-05:00",
-    "time_start": "",
-    "location": "Peppa Pig World of Play Chicago",
-    "description": "&lt;p&gt;Join us for Homeschool Days at Peppa Pig World of Play Chicago, where preschool families can enjoy an OINKTASTIC discount! Experience the magic of Peppa…&lt;/p&gt;\\n",
-    "event_url": "https://www.choosechicago.com/event/homeschool-days-at-peppa-pig-world-of-play-chicago/2025-10-07/",
-    "category": "https://schema.org/OfflineEventAttendanceMode",
-    "price": "",
-    "source": "universal_extraction",
-    "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.602Z",
-    "extraction_method": "universal"
-  },
-  {
-    "title": "Boo! at the Zoo",
-    "date_info": "2025-10-07T10:00:00-05:00",
-    "time_start": "",
-    "location": "Brookfield Zoo Chicago",
-    "description": "&lt;p&gt;Get ready for a fang-tastic time at BOO! at the Zoo, Brookfield Zoo Chicago’s family-friendly Halloween celebration. This event is packed with not-so-scary thrills, festive decorations,…&lt;/p&gt;\\n",
-    "event_url": "https://www.choosechicago.com/event/boo-at-the-zoo/2025-10-07/",
-    "category": "https://schema.org/OfflineEventAttendanceMode",
-    "price": "",
-    "source": "universal_extraction",
-    "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.602Z",
-    "extraction_method": "universal"
-  },
-  {
-    "title": "Big Bus Tours’ Hop-On, Hop-Off Tour",
-    "date_info": "2025-10-07T10:00:00-05:00",
-    "time_start": "",
-    "location": "Chicago Riverwalk",
-    "description": "&lt;p&gt;Big Bus Tours’ daily Hop-On, Hop-Off tours offer visitors a convenient way to explore Chicago’s vibrant downtown, including historic landmarks, cultural institutions and hidden gems.…&lt;/p&gt;\\n",
-    "event_url": "https://www.choosechicago.com/event/big-bus-tours-hop-on-hop-off-tour/2025-10-07/",
-    "category": "https://schema.org/OfflineEventAttendanceMode",
-    "price": "49.50",
-    "source": "universal_extraction",
-    "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.602Z",
-    "extraction_method": "universal"
-  },
-  {
-    "title": "Illinois Holocaust Museum presents Experience360",
-    "date_info": "2025-10-07T10:00:00-05:00",
-    "time_start": "",
-    "location": "Illinois Holocaust Museum presents Experience360",
-    "description": "&lt;p&gt;Illinois Holocaust Museum presents Experience360 provides a panoramic view through history and truth, inviting visitors of all backgrounds to witness stories of survival, ask questions, and reflect…&lt;/p&gt;\\n",
-    "event_url": "https://www.choosechicago.com/event/illinois-holocaust-museum-presents-experience360/2025-10-07/",
-    "category": "https://schema.org/OfflineEventAttendanceMode",
-    "price": "",
-    "source": "universal_extraction",
-    "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.602Z",
-    "extraction_method": "universal"
-  },
-  {
-    "title": "The World Within: Chicago&#8217;s Original &amp; Best Architecture Interiors Tour",
-    "date_info": "2025-10-07T11:00:00-05:00",
-    "time_start": "",
-    "location": "Chicago Loop &amp; River North",
-    "description": "&lt;p&gt;“Everything has beauty, but not everyone sees it.”  (Confucius) Everyone does a boat tour when they visit Chicago.  But as fun as that is, it’s…&lt;/p&gt;\\n",
-    "event_url": "https://www.choosechicago.com/event/the-world-within-chicagos-original-best-architecture-interiors-tour-3/2025-10-07/",
-    "category": "https://schema.org/OfflineEventAttendanceMode",
-    "price": "",
-    "source": "universal_extraction",
-    "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.602Z",
-    "extraction_method": "universal"
-  },
-  {
-    "title": "Seadog Architecture Tour on the Chicago River",
-    "date_info": "2025-10-07T12:30:00-05:00",
-    "time_start": "",
-    "location": "City Cruises &#8211; River Esplanade",
-    "description": "&lt;p&gt;Soak in unobstructed views of Chicago’s world-famous architecture with an exciting 45-minute ride on our Seadog Chicago River Architecture Tour! Starting right on the Chicago…&lt;/p&gt;\\n",
-    "event_url": "https://www.choosechicago.com/event/seadog-architecture-tour-on-the-chicago-river/2025-10-07/",
-    "category": "https://schema.org/OfflineEventAttendanceMode",
-    "price": "",
-    "source": "universal_extraction",
-    "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.602Z",
+    "scraped_at": "2025-10-07T23:26:33.934Z",
     "extraction_method": "universal"
   },
   {
@@ -260,9 +98,10 @@
     "event_url": "https://www.choosechicago.com/event/90-minute-architecture-river-tour-in-chicago/2025-10-07/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "49",
+    "_ts": "2025-10-07T22:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.602Z",
+    "scraped_at": "2025-10-07T23:26:33.934Z",
     "extraction_method": "universal"
   },
   {
@@ -274,9 +113,10 @@
     "event_url": "https://www.choosechicago.com/event/get-lit-the-case-of-the-book-club-butcher/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "21.05 – 28.52",
+    "_ts": "2025-10-07T22:30:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.602Z",
+    "scraped_at": "2025-10-07T23:26:33.934Z",
     "extraction_method": "universal"
   },
   {
@@ -288,9 +128,10 @@
     "event_url": "https://www.choosechicago.com/event/jbf-greens-chicago-x-kayao/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "105.00",
+    "_ts": "2025-10-07T23:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.602Z",
+    "scraped_at": "2025-10-07T23:26:33.934Z",
     "extraction_method": "universal"
   },
   {
@@ -302,9 +143,10 @@
     "event_url": "https://www.choosechicago.com/event/books-on-the-chopping-block-2/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "0",
+    "_ts": "2025-10-07T23:30:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.603Z",
+    "scraped_at": "2025-10-07T23:26:33.934Z",
     "extraction_method": "universal"
   },
   {
@@ -316,9 +158,190 @@
     "event_url": "https://www.choosechicago.com/event/yung-lean-forever-yung-tour/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-07T23:30:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://www.choosechicago.com/events/",
-    "scraped_at": "2025-10-07T15:09:36.603Z",
+    "scraped_at": "2025-10-07T23:26:33.934Z",
+    "extraction_method": "universal"
+  },
+  {
+    "title": "Tuesday Good Show",
+    "date_info": "2025-10-07T19:00:00-05:00",
+    "time_start": "",
+    "location": "The Gallery Cabaret",
+    "description": "&lt;p&gt;Showcasing some of the best performers in the city, Tuesday Good Show is a free weekly variety show hosted by Nick Bonsignore and Keller Paulson.…&lt;/p&gt;\\n",
+    "event_url": "https://www.choosechicago.com/event/tuesday-good-show/2025-10-07/",
+    "category": "https://schema.org/OfflineEventAttendanceMode",
+    "price": "0",
+    "_ts": "2025-10-08T00:00:00.000Z",
+    "source": "universal_extraction",
+    "source_url": "https://www.choosechicago.com/events/",
+    "scraped_at": "2025-10-07T23:26:33.934Z",
+    "extraction_method": "universal"
+  },
+  {
+    "title": "Cavalleria rusticana &amp; Pagliacci",
+    "date_info": "2025-10-07T19:00:00-05:00",
+    "time_start": "",
+    "location": "Lyric Opera House",
+    "description": "&lt;p&gt;This duo of passionate one-act operas explores the depths of spurned lovers’ grief and the lengths they’ll go to in avenging betrayal. Deadly love triangles…&lt;/p&gt;\\n",
+    "event_url": "https://www.choosechicago.com/event/cavalleria-rusticana-pagliacci/2025-10-07/",
+    "category": "https://schema.org/OfflineEventAttendanceMode",
+    "price": "",
+    "_ts": "2025-10-08T00:00:00.000Z",
+    "source": "universal_extraction",
+    "source_url": "https://www.choosechicago.com/events/",
+    "scraped_at": "2025-10-07T23:26:33.934Z",
+    "extraction_method": "universal"
+  },
+  {
+    "title": "Ashland Avenue",
+    "date_info": "2025-10-07T19:30:00-05:00",
+    "time_start": "",
+    "location": "Goodman Albert Theatre",
+    "description": "&lt;p&gt;“You gotta start living your life right now. Because someday you’ll wake up and it’s over.” Pete’s TV and Video has served Chicagoland for 40+…&lt;/p&gt;\\n",
+    "event_url": "https://www.choosechicago.com/event/ashland-avenue/2025-10-07/",
+    "category": "https://schema.org/OfflineEventAttendanceMode",
+    "price": "",
+    "_ts": "2025-10-08T00:30:00.000Z",
+    "source": "universal_extraction",
+    "source_url": "https://www.choosechicago.com/events/",
+    "scraped_at": "2025-10-07T23:26:33.934Z",
+    "extraction_method": "universal"
+  },
+  {
+    "title": "Tomato Throw Show at The Comedy Bar",
+    "date_info": "2025-10-07T19:30:00-05:00",
+    "time_start": "",
+    "location": "The Comedy Bar",
+    "description": "&lt;p&gt;2-Item Minimum Per Guest First Come, First Served Seating No Outside Food or Beverage Valid ID Required at Entry Join us for the most fun…&lt;/p&gt;\\n",
+    "event_url": "https://www.choosechicago.com/event/tomato-throw-show-at-the-comedy-bar-4/2025-10-07/",
+    "category": "https://schema.org/OfflineEventAttendanceMode",
+    "price": "22 – 25",
+    "_ts": "2025-10-08T00:30:00.000Z",
+    "source": "universal_extraction",
+    "source_url": "https://www.choosechicago.com/events/",
+    "scraped_at": "2025-10-07T23:26:33.934Z",
+    "extraction_method": "universal"
+  },
+  {
+    "title": "Big Bus Tours’ Sunset Live Tour",
+    "date_info": "2025-10-07T19:30:00-05:00",
+    "time_start": "",
+    "location": "618 N Clark St.",
+    "description": "&lt;p&gt;Big Bus Tours, the global leader in open-top bus sightseeing, invites visitors to experience the enhanced Sunset Live Tour in Chicago. Available May 8 through…&lt;/p&gt;\\n",
+    "event_url": "https://www.choosechicago.com/event/big-bus-tours-sunset-live-tour-5/2025-10-07/",
+    "category": "https://schema.org/OfflineEventAttendanceMode",
+    "price": "49.50",
+    "_ts": "2025-10-08T00:30:00.000Z",
+    "source": "universal_extraction",
+    "source_url": "https://www.choosechicago.com/events/",
+    "scraped_at": "2025-10-07T23:26:33.934Z",
+    "extraction_method": "universal"
+  },
+  {
+    "title": "Mr. Wolf",
+    "date_info": "2025-10-07T19:30:00-05:00",
+    "time_start": "",
+    "location": "Steppenwolf Downstairs Theater",
+    "description": "&lt;p&gt;12 years ago, Theresa was stolen from her parents. Now a precocious 15-year-old, she has been rescued and returned to a family that had nearly…&lt;/p&gt;\\n",
+    "event_url": "https://www.choosechicago.com/event/mr-wolf/2025-10-07/",
+    "category": "https://schema.org/OfflineEventAttendanceMode",
+    "price": "",
+    "_ts": "2025-10-08T00:30:00.000Z",
+    "source": "universal_extraction",
+    "source_url": "https://www.choosechicago.com/events/",
+    "scraped_at": "2025-10-07T23:26:33.934Z",
+    "extraction_method": "universal"
+  },
+  {
+    "title": "Halloween Chicago Ghost Tour &amp; Hunt: Lincoln Park Hauntings by American Ghost Walks",
+    "date_info": "2025-10-07T20:00:00-05:00",
+    "time_start": "",
+    "location": "Meeting Point: In front of the Chicago History Museum",
+    "description": "&lt;p&gt;Join American Ghost Walks on a spine-chilling Chicago Ghost Tour &amp; Ghost Hunt in Lincoln Park, known for its eerie hauntings and chilling history. Dive…&lt;/p&gt;\\n",
+    "event_url": "https://www.choosechicago.com/event/halloween-chicago-ghost-tour-hunt-lincoln-park-hauntings-by-american-ghost-walks/2025-10-07/",
+    "category": "https://schema.org/OfflineEventAttendanceMode",
+    "price": "34.99",
+    "_ts": "2025-10-08T01:00:00.000Z",
+    "source": "universal_extraction",
+    "source_url": "https://www.choosechicago.com/events/",
+    "scraped_at": "2025-10-07T23:26:33.934Z",
+    "extraction_method": "universal"
+  },
+  {
+    "title": "Oops! All Bits",
+    "date_info": "2025-10-07T20:30:00-05:00",
+    "time_start": "",
+    "location": "Judy&#8217;s Beat Lounge at the Second City Training Center",
+    "description": "&lt;p&gt;Skip your balanced breakfast and go straight for the good stuff! New Nonsense brings to the stage a show highlighting its best bits, blackouts, and…&lt;/p&gt;\\n",
+    "event_url": "https://www.choosechicago.com/event/oops-all-bits/2025-10-07/",
+    "category": "https://schema.org/OfflineEventAttendanceMode",
+    "price": "15",
+    "_ts": "2025-10-08T01:30:00.000Z",
+    "source": "universal_extraction",
+    "source_url": "https://www.choosechicago.com/events/",
+    "scraped_at": "2025-10-07T23:26:33.934Z",
+    "extraction_method": "universal"
+  },
+  {
+    "title": "The Lion King",
+    "date_info": "2025-10-08T00:00:00-05:00",
+    "time_start": "",
+    "location": "Cadillac Palace Theatre",
+    "description": "&lt;p&gt;Giraffes strut. Birds swoop. Gazelles leap. The entire Serengeti comes to life as never before. And as the music soars, Pride Rock slowly emerges from…&lt;/p&gt;\\n",
+    "event_url": "https://www.choosechicago.com/event/the-lion-king/2025-10-08/",
+    "category": "https://schema.org/OfflineEventAttendanceMode",
+    "price": "",
+    "_ts": "2025-10-08T05:00:00.000Z",
+    "source": "universal_extraction",
+    "source_url": "https://www.choosechicago.com/events/",
+    "scraped_at": "2025-10-07T23:26:33.934Z",
+    "extraction_method": "universal"
+  },
+  {
+    "title": "Ear Taxi Festival",
+    "date_info": "2025-10-08T00:00:00-05:00",
+    "time_start": "",
+    "location": "Harris Theater for Music and Dance",
+    "description": "&lt;p&gt;The Ear Taxi Festival 2025, themed &quot;The Composer’s Voice,&quot; is a landmark event showcasing contemporary concert music across Chicagoland from October 3 through November 2,…&lt;/p&gt;\\n",
+    "event_url": "https://www.choosechicago.com/event/ear-taxi-festival/2025-10-08/",
+    "category": "https://schema.org/OfflineEventAttendanceMode",
+    "price": "",
+    "_ts": "2025-10-08T05:00:00.000Z",
+    "source": "universal_extraction",
+    "source_url": "https://www.choosechicago.com/events/",
+    "scraped_at": "2025-10-07T23:26:33.934Z",
+    "extraction_method": "universal"
+  },
+  {
+    "title": "Pumpkin Lights &amp; Playful Frights",
+    "date_info": "2025-10-08T00:00:00-05:00",
+    "time_start": "",
+    "location": "wndr museum",
+    "description": "&lt;p&gt;Step into WNDR this October for a seasonal spectacle like never before. Celebrate fall fun at WNDR Museum next month where treats, surprises, entertainment and…&lt;/p&gt;\\n",
+    "event_url": "https://www.choosechicago.com/event/pumpkin-lights-playful-frights/2025-10-08/",
+    "category": "https://schema.org/OfflineEventAttendanceMode",
+    "price": "",
+    "_ts": "2025-10-08T05:00:00.000Z",
+    "source": "universal_extraction",
+    "source_url": "https://www.choosechicago.com/events/",
+    "scraped_at": "2025-10-07T23:26:33.934Z",
+    "extraction_method": "universal"
+  },
+  {
+    "title": "Division Street Farmers Market",
+    "date_info": "2025-10-08T07:00:00-05:00",
+    "time_start": "",
+    "location": "30 W. Division St.",
+    "description": "&lt;p&gt;Fresh seasonal produce, flowers, prepared foods, unique Chicago-made products and rare finds are available at the Division Street Farmers Market.&lt;/p&gt;\\n",
+    "event_url": "https://www.choosechicago.com/event/division-street-farmers-market-2/2025-10-08/",
+    "category": "https://schema.org/OfflineEventAttendanceMode",
+    "price": "0",
+    "_ts": "2025-10-08T12:00:00.000Z",
+    "source": "universal_extraction",
+    "source_url": "https://www.choosechicago.com/events/",
+    "scraped_at": "2025-10-07T23:26:33.934Z",
     "extraction_method": "universal"
   },
   {
@@ -330,9 +353,10 @@
     "event_url": "https://navypier.org/events/girl-dinner-tunes-with-heygirl/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-02T23:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.932Z",
     "extraction_method": "universal"
   },
   {
@@ -344,9 +368,10 @@
     "event_url": "https://navypier.org/events/pachanga-on-navy-pier/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-04T01:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.932Z",
     "extraction_method": "universal"
   },
   {
@@ -358,9 +383,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-10-04/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-04T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.932Z",
     "extraction_method": "universal"
   },
   {
@@ -372,9 +398,10 @@
     "event_url": "https://navypier.org/events/play-the-park-promo-20-off/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-04T16:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.932Z",
     "extraction_method": "universal"
   },
   {
@@ -386,9 +413,10 @@
     "event_url": "https://navypier.org/events/dabin/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-05T00:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.932Z",
     "extraction_method": "universal"
   },
   {
@@ -400,9 +428,10 @@
     "event_url": "https://navypier.org/events/vinitaly-usa/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-05T05:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.932Z",
     "extraction_method": "universal"
   },
   {
@@ -414,9 +443,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-10-05/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-05T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.932Z",
     "extraction_method": "universal"
   },
   {
@@ -428,9 +458,10 @@
     "event_url": "https://navypier.org/events/play-the-park-promo-20-off-10-05/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-05T16:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.932Z",
     "extraction_method": "universal"
   },
   {
@@ -442,9 +473,10 @@
     "event_url": "https://navypier.org/events/vinitaly-usa-monday/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-06T05:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.932Z",
     "extraction_method": "universal"
   },
   {
@@ -456,9 +488,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit-10-06/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-06T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.932Z",
     "extraction_method": "universal"
   },
   {
@@ -470,9 +503,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-10-08/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-08T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.932Z",
     "extraction_method": "universal"
   },
   {
@@ -484,9 +518,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity-10-08/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-09T00:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.932Z",
     "extraction_method": "universal"
   },
   {
@@ -498,9 +533,10 @@
     "event_url": "https://navypier.org/events/ihcc-annual-business-conference-expo/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-09T12:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.932Z",
     "extraction_method": "universal"
   },
   {
@@ -512,9 +548,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-10-09/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-09T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.932Z",
     "extraction_method": "universal"
   },
   {
@@ -526,9 +563,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-09/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-10T00:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.932Z",
     "extraction_method": "universal"
   },
   {
@@ -540,9 +578,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-10-10/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-10T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -554,9 +593,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-10/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-11T00:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -568,9 +608,10 @@
     "event_url": "https://navypier.org/events/slow-and-low-2025/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-11T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -582,9 +623,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-10-11/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-11T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -596,9 +638,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-11/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-12T00:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -610,9 +653,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-10-12/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-12T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -624,9 +668,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-12/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-12T19:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -638,9 +683,10 @@
     "event_url": "https://navypier.org/events/rooftop-silent-disco-with-hush/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-12T19:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -652,9 +698,10 @@
     "event_url": "https://navypier.org/events/black-girl-art-show/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-12T20:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -666,9 +713,10 @@
     "event_url": "https://navypier.org/events/city-of-confidence-fashion-show/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-12T22:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.035Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -680,9 +728,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-10-13/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-13T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -694,9 +743,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity-10-14/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-15T00:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -708,9 +758,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-10-15/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-15T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -722,9 +773,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-15/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-16T00:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -736,9 +788,10 @@
     "event_url": "https://navypier.org/events/the-cooperator-expo-chicagoland/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-16T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -750,9 +803,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit-10-16/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-16T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -764,9 +818,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-16/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-17T00:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -778,9 +833,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-10-17/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-17T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -792,9 +848,10 @@
     "event_url": "https://navypier.org/events/usc-trojan-marching-band/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-17T17:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -806,9 +863,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-17/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-18T00:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -820,9 +878,10 @@
     "event_url": "https://navypier.org/events/art-beats-lyrics/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-18T00:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.933Z",
     "extraction_method": "universal"
   },
   {
@@ -834,9 +893,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-10-18/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-18T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -848,9 +908,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-18/3/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-18T19:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -862,9 +923,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-18/4/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-19T00:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -876,9 +938,10 @@
     "event_url": "https://navypier.org/events/park-tailgate-sail-at-harry-carays/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "30",
+    "_ts": "2025-10-19T14:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -890,9 +953,10 @@
     "event_url": "https://navypier.org/events/chicago-bears-home-game-water-taxi/2025-10-19/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-19T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -904,9 +968,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-10-19/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-19T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -918,9 +983,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-19/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-19T19:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -932,9 +998,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-10-20/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-20T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -946,9 +1013,10 @@
     "event_url": "https://navypier.org/events/winter-wonderfest-job-fair-10-21/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-21T21:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -960,9 +1028,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-21/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-22T00:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -974,9 +1043,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit-10-22/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-22T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -988,9 +1058,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-22/1/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-22T18:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -1002,9 +1073,10 @@
     "event_url": "https://navypier.org/events/winter-wonderfest-job-fair/2025-10-22/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-22T21:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -1016,9 +1088,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-22/2/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-23T00:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -1030,9 +1103,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-10-23/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-23T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -1044,9 +1118,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity-10-23/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-24T00:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -1058,9 +1133,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-10-24/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-24T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -1072,9 +1148,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-24/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-25T00:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -1086,9 +1163,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-10-25/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-25T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.036Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -1100,9 +1178,10 @@
     "event_url": "https://navypier.org/events/slightly-spooky-saturday-2025/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "0",
+    "_ts": "2025-10-25T17:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.037Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -1114,9 +1193,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-25/1/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-25T19:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.037Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -1128,9 +1208,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-25/2/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-26T00:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.037Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -1142,9 +1223,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-10-26/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-26T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.037Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -1156,9 +1238,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-26/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-26T19:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.037Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -1170,9 +1253,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-10-27/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-27T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.037Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -1184,9 +1268,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-28/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-29T00:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.037Z",
+    "scraped_at": "2025-10-07T23:26:35.934Z",
     "extraction_method": "universal"
   },
   {
@@ -1198,9 +1283,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-10-29/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-29T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.037Z",
+    "scraped_at": "2025-10-07T23:26:35.935Z",
     "extraction_method": "universal"
   },
   {
@@ -1212,9 +1298,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-29/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-30T00:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.037Z",
+    "scraped_at": "2025-10-07T23:26:35.935Z",
     "extraction_method": "universal"
   },
   {
@@ -1226,9 +1313,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit-10-30/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-30T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.037Z",
+    "scraped_at": "2025-10-07T23:26:35.935Z",
     "extraction_method": "universal"
   },
   {
@@ -1240,9 +1328,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-30/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-31T00:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.037Z",
+    "scraped_at": "2025-10-07T23:26:35.935Z",
     "extraction_method": "universal"
   },
   {
@@ -1254,9 +1343,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-10-31/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-31T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.037Z",
+    "scraped_at": "2025-10-07T23:26:35.935Z",
     "extraction_method": "universal"
   },
   {
@@ -1268,9 +1358,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity-10-31/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-31T23:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.037Z",
+    "scraped_at": "2025-10-07T23:26:35.935Z",
     "extraction_method": "universal"
   },
   {
@@ -1282,9 +1373,10 @@
     "event_url": "https://navypier.org/events/halloween-at-offshore-rooftop/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-10-31T23:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.037Z",
+    "scraped_at": "2025-10-07T23:26:35.935Z",
     "extraction_method": "universal"
   },
   {
@@ -1296,9 +1388,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-10-31/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-11-01T03:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.037Z",
+    "scraped_at": "2025-10-07T23:26:35.935Z",
     "extraction_method": "universal"
   },
   {
@@ -1310,9 +1403,10 @@
     "event_url": "https://navypier.org/events/take-care-with-peanuts-the-exhibit/2025-11-01/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-11-01T15:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.037Z",
+    "scraped_at": "2025-10-07T23:26:35.935Z",
     "extraction_method": "universal"
   },
   {
@@ -1324,9 +1418,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-11-01/1/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-11-01T19:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.037Z",
+    "scraped_at": "2025-10-07T23:26:35.935Z",
     "extraction_method": "universal"
   },
   {
@@ -1338,9 +1433,10 @@
     "event_url": "https://navypier.org/events/paranormal-activity/2025-11-01/2/",
     "category": "https://schema.org/OfflineEventAttendanceMode",
     "price": "",
+    "_ts": "2025-11-02T00:00:00.000Z",
     "source": "universal_extraction",
     "source_url": "https://navypier.org/events",
-    "scraped_at": "2025-10-07T15:09:38.037Z",
+    "scraped_at": "2025-10-07T23:26:35.935Z",
     "extraction_method": "universal"
   }
 ]

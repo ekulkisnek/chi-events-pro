@@ -24,6 +24,7 @@ type Ev = {
   time_start?: string
   price?: string
   description?: string
+  _ts?: string
 }
 
 export default function MapPage() {
@@ -35,8 +36,8 @@ export default function MapPage() {
   useEffect(() => {
     ;(async () => {
       const ts = Date.now()
-      const localUrl = `/data/events.v3.json?v=${ts}`
-      const rawUrl = `https://raw.githubusercontent.com/ekulkisnek/chi-events-pro/main/public/data/events.v3.json?${ts}`
+      const localUrl = `/data/events.v4.json?v=${ts}`
+      const rawUrl = `https://raw.githubusercontent.com/ekulkisnek/chi-events-pro/main/public/data/events.v4.json?${ts}`
       try {
         const res = await fetch(localUrl, { cache: 'no-store' })
         const data = await res.json()
@@ -64,7 +65,7 @@ export default function MapPage() {
 
   function withinWhen(e: Ev): boolean {
     const now = dayjs()
-    const d = e.date_info ? dayjs(e.date_info) : null
+    const d = e._ts ? dayjs(e._ts) : (e.date_info ? dayjs(e.date_info) : null)
     if (!d || !d.isValid()) return when === 'all'
     if (when === 'today') return d.isSame(now, 'day')
     if (when === 'week') return d.isBefore(now.add(7, 'day')) && d.isAfter(now.subtract(1, 'day'))
@@ -81,8 +82,8 @@ export default function MapPage() {
     })
     // Sort soonest first (if date present)
     return list.sort((a,b) => {
-      const ad = a.date_info ? dayjs(a.date_info) : null
-      const bd = b.date_info ? dayjs(b.date_info) : null
+      const ad = a._ts ? dayjs(a._ts) : (a.date_info ? dayjs(a.date_info) : null)
+      const bd = b._ts ? dayjs(b._ts) : (b.date_info ? dayjs(b.date_info) : null)
       if (ad && bd) return ad.valueOf() - bd.valueOf()
       if (ad) return -1
       if (bd) return 1
@@ -153,10 +154,10 @@ export default function MapPage() {
                 <div className="col" style={{flex:1}}>
                   <div className="title">{e.title}</div>
                   <div className="row">
-                    {e.date_info && (
+                    {(e._ts || e.date_info) && (
                       <span className="time-badge">
-                        {e.date_info}{e.time_start ? ` · ${e.time_start}` : ''}
-                        {(() => { const d = dayjs(e.date_info); return d.isValid() ? ` · in ${dayjs().to(d, true)}` : '' })()}
+                        {(e.date_info || '').trim()}{e.time_start ? ` · ${e.time_start}` : ''}
+                        {(() => { const d = e._ts ? dayjs(e._ts) : (e.date_info ? dayjs(e.date_info) : null); return d && d.isValid() ? ` · in ${dayjs().to(d, true)}` : '' })()}
                       </span>
                     )}
                     {e.category && <span className="category-badge">{e.category}</span>}

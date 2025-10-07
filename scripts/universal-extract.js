@@ -18,6 +18,32 @@ function normalizeEvent(e) {
   return { title, date_info: dateInfo, time_start: timeStart, location, description, event_url: eventUrl, category, price }
 }
 
+function deriveTimestamp(dateInfo, timeStart) {
+  const now = new Date()
+  const base = String(dateInfo || '') + (timeStart ? ` ${timeStart}` : '')
+  let d = null
+  try { d = chrono.parseDate(base, now) } catch {}
+  if (!d || Math.abs(d.getFullYear() - now.getFullYear()) > 2) {
+    const s = String(dateInfo || '')
+    const mmdd = /\b([01]?\d)[\/-]([0-3]?\d)\b/.exec(s)
+    const monthName = /(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)\.?\s*([0-3]?\d)/i.exec(s)
+    let m = null, day = null
+    if (mmdd) { m = Number(mmdd[1]); day = Number(mmdd[2]) }
+    if (monthName) {
+      const map = {jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,sept:9,oct:10,nov:11,dec:12}
+      m = map[monthName[1].toLowerCase()] || m; day = Number(monthName[2]) || day
+    }
+    if (m && day) {
+      const candidate = new Date(now.getFullYear(), m-1, day)
+      if (candidate.getTime() < now.getTime() - 24*3600*1000) {
+        candidate.setFullYear(candidate.getFullYear() + 1)
+      }
+      d = candidate
+    }
+  }
+  return d ? d.toISOString() : null
+}
+
 async function fetchText(url) {
   const res = await fetch(url, { headers: { 'User-Agent': 'chi-events-universal/1.0' } })
   if (!res.ok) throw new Error(`fetch failed ${res.status}`)
@@ -133,7 +159,7 @@ async function main() {
       const fromMicro = parseMicrodata($, url)
       const fromIcs = await parseIcsLinks($, url)
       for (const e of [...fromJsonLd, ...fromMicro, ...fromIcs]) {
-        if (isLikelyEvent(e)) results.push({ ...e, source: 'universal_extraction', source_url: url, scraped_at: new Date().toISOString(), extraction_method: 'universal' })
+        if (isLikelyEvent(e)) results.push({ ...e, _ts: deriveTimestamp(e.date_info, e.time_start), source: 'universal_extraction', source_url: url, scraped_at: new Date().toISOString(), extraction_method: 'universal' })
       }
     } catch (e) {
       // ignore per-seed failures
