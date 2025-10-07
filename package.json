@@ -10,21 +10,26 @@
     "scrape": "node scripts/run-scrape.js",
     "consolidate": "node scripts/run-consolidate.js",
     "geocode": "node scripts/enrich-geocode.js",
-    "generate:data": "npm run scrape && npm run consolidate && npm run geocode"
+    "generate:data": "npm run scrape && npm run consolidate && npm run geocode",
+    "extract:universal": "node scripts/universal-extract.js --seeds sources/seeds.txt --out public/data/events.universal.json",
+    "merge:datasets": "node scripts/merge-datasets.js public/data/events.v2.json public/data/events.universal.json public/data/events.v3.json",
+    "validate:dataset": "node scripts/validate-dataset.js public/data/events.v3.json"
   },
   "dependencies": {
+    "cheerio": "^1.1.2",
+    "chrono-node": "^2.7.6",
+    "dayjs": "^1.11.11",
+    "leaflet": "^1.9.4",
     "next": "^14.0.0",
+    "node-ical": "^0.16.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "leaflet": "^1.9.4",
-    "react-leaflet": "^4.2.1",
-    "dayjs": "^1.11.11",
-    "chrono-node": "^2.7.6"
+    "react-leaflet": "^4.2.1"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
     "@types/node": "^20.0.0",
     "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0"
+    "@types/react-dom": "^18.0.0",
+    "typescript": "^5.0.0"
   }
 }
