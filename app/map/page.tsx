@@ -35,8 +35,8 @@ export default function MapPage() {
   useEffect(() => {
     ;(async () => {
       const ts = Date.now()
-      const localUrl = `/data/events.v1.json?v=${ts}`
-      const rawUrl = `https://raw.githubusercontent.com/ekulkisnek/chi-events-pro/main/public/data/events.v1.json?${ts}`
+      const localUrl = `/data/events.v2.json?v=${ts}`
+      const rawUrl = `https://raw.githubusercontent.com/ekulkisnek/chi-events-pro/main/public/data/events.v2.json?${ts}`
       try {
         const res = await fetch(localUrl, { cache: 'no-store' })
         const data = await res.json()

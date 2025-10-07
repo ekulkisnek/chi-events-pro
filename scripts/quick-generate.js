@@ -7,7 +7,21 @@ function hasPlausibleDate(ev) {
   if (/(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)\.?\s*[0-3]?\d/.test(s)) return true
   if (/\b20\d{2}-[01]?\d-[0-3]?\d\b/.test(s)) return true
   if (/\b[01]?\d\/[0-3]?\d(\/20\d{2})?\b/.test(s)) return true
+  // Fallback to chrono when regex misses ranges like "Through Sep 21", "Until Dec 27"
+  try { if (chrono.parseDate(String(ev.date_info || ''))) return true } catch {}
   return false
+}
+
+function isTrustedChicagoSource(url) {
+  try {
+    const u = new URL(url)
+    const h = u.hostname
+    return [
+      'do312.com', 'timeout.com', 'www.timeout.com', 'choosechicago.com', 'www.choosechicago.com',
+      'chicago.gov', 'www.chicago.gov', 'chicagomag.com', 'www.chicagomag.com', 'blockclubchicago.org',
+      'www.blockclubchicago.org', 'eventbrite.com', 'www.eventbrite.com', 'navypier.org', 'www.navypier.org'
+    ].some(dom => h === dom || h.endsWith('.' + dom))
+  } catch { return false }
 }
 
 function main() {
@@ -34,15 +48,26 @@ function main() {
       ...e,
       event_url: e.event_url || e.url || e.source_url || ''
     }))
+    .map(e => {
+      // If location is missing but source is trusted Chicago domain, set a safe fallback
+      const hasLocation = typeof e.location === 'string' && e.location.trim().length > 3
+      if (!hasLocation && isTrustedChicagoSource(e.event_url)) {
+        return { ...e, location: 'Chicago' }
+      }
+      return e
+    })
     .filter(e => {
       const title = String(e.title || '').trim()
       const desc = String(e.description || '')
       const hasUrl = typeof e.event_url === 'string' && e.event_url.startsWith('http')
-      const hasLocation = typeof e.location === 'string' && e.location.length > 3
+      const hasLocation = typeof e.location === 'string' && e.location.trim().length > 3
       const looksLikeAnnouncement = bannedTitleFragments.some(f => title.toLowerCase().includes(f))
         || desc.includes('#cds-separator') || desc.includes('console.log(')
       const plausible = hasPlausibleDate(e) || (e.time_start && e.time_start.length >= 3)
-      if (!title || !hasUrl || !hasLocation) return false
+        || (() => { try { return !!chrono.parseDate(title + ' ' + String(e.date_info || '')) } catch { return false } })()
+      if (!title || !hasUrl) return false
+      // Allow trusted sources to pass without explicit location (we set fallback above)
+      if (!hasLocation && !isTrustedChicagoSource(e.event_url)) return false
       if (!plausible) return false
       if (looksLikeAnnouncement) return false
       return true
@@ -56,8 +81,10 @@ function main() {
       return { ...e, _ts: ts }
     })
     .filter((e, idx, arr) => {
-      const key = `${String(e.title).toLowerCase()}|${String(e.date_info).toLowerCase()}`
-      return arr.findIndex(x => `${String(x.title).toLowerCase()}|${String(x.date_info).toLowerCase()}` === key) === idx
+      const normTitle = String(e.title).toLowerCase().trim()
+      const normDate = String(e.date_info || '').toLowerCase().replace(/\s+/g, ' ').trim()
+      const key = `${normTitle}|${normDate}`
+      return arr.findIndex(x => `${String(x.title).toLowerCase().trim()}|${String(x.date_info || '').toLowerCase().replace(/\s+/g,' ').trim()}` === key) === idx
     })
     .sort((a,b) => {
       if (a._ts && b._ts) return a._ts.localeCompare(b._ts)

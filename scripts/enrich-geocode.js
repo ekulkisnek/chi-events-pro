@@ -60,7 +60,7 @@ function looksLikeAddress(s) {
 
 let updated = 0
 let lookedUp = 0
-const MAX_LOOKUPS = 80
+const MAX_LOOKUPS = 300
 
 for (const ev of events) {
   const hasLatLon = typeof ev.latitude === 'number' && typeof ev.longitude === 'number'
