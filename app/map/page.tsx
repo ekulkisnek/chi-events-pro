@@ -33,10 +33,29 @@ export default function MapPage() {
   const [when, setWhen] = useState<'all'|'today'|'week'|'weekend'>('all')
 
   useEffect(() => {
-    fetch(`/data/events.json?v=${Date.now()}`)
-      .then(r => r.json())
-      .then((data) => setEvents(Array.isArray(data) ? data : data.events || []))
-      .catch(() => setEvents([]))
+    ;(async () => {
+      const ts = Date.now()
+      const localUrl = `/data/events.json?v=${ts}`
+      const rawUrl = `https://raw.githubusercontent.com/ekulkisnek/chi-events-pro/main/public/data/events.json?${ts}`
+      try {
+        const res = await fetch(localUrl, { cache: 'no-store' })
+        const data = await res.json()
+        const arr = Array.isArray(data) ? data : (data?.events || [])
+        if (arr.length > 0) { setEvents(arr); return }
+        // Fallback if empty
+        const res2 = await fetch(rawUrl, { cache: 'no-store' })
+        const data2 = await res2.json()
+        setEvents(Array.isArray(data2) ? data2 : (data2?.events || []))
+      } catch {
+        try {
+          const res2 = await fetch(rawUrl, { cache: 'no-store' })
+          const data2 = await res2.json()
+          setEvents(Array.isArray(data2) ? data2 : (data2?.events || []))
+        } catch {
+          setEvents([])
+        }
+      }
+    })()
   }, [])
 
   const center = useMemo<[number, number]>(() => [41.8781, -87.6298], [])
