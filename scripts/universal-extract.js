@@ -1,21 +1,39 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { createHash } from 'node:crypto'
 import { load as cheerioLoad } from 'cheerio'
 import * as chrono from 'chrono-node'
 import ical from 'node-ical'
 
 function toArray(x) { return Array.isArray(x) ? x : (x ? [x] : []) }
 
+function sanitizeText(value) {
+  const text = String(value || '')
+    .replace(/\s+/g, ' ')
+    .replace(/<[^>]*>/g, '')
+    .replace(/\{[^}]*\}/g, '')
+    .replace(/#[a-z0-9_-]{5,}\b/gi, '')
+    .trim()
+  return text.length > 2000 ? text.slice(0, 2000) : text
+}
+
+function computeId(e) {
+  const src = `${String(e.title || '').toLowerCase().trim()}|${String(e.date_info || '').toLowerCase().trim()}|${String(e.location || '').toLowerCase().trim()}`
+  return createHash('md5').update(src).digest('hex').slice(0, 16)
+}
+
 function normalizeEvent(e) {
-  const title = String(e.title || e.name || '').trim()
-  const dateInfo = e.date_info || e.startDate || e.start || e.date || ''
-  const timeStart = e.time_start || e.startTime || ''
-  const location = e.location?.name || e.location?.address || e.venue || e.place || e.location || ''
-  const description = String(e.description || '').trim()
-  const eventUrl = e.event_url || e.url || e.link || ''
-  const category = e.category || e.type || ''
-  const price = e.price || ''
-  return { title, date_info: dateInfo, time_start: timeStart, location, description, event_url: eventUrl, category, price }
+  const title = sanitizeText(e.title || e.name || '')
+  const dateInfo = sanitizeText(e.date_info || e.startDate || e.start || e.date || '')
+  const timeStart = sanitizeText(e.time_start || e.startTime || '')
+  const rawLoc = e.location?.name || e.location?.address || e.venue || e.place || e.location || ''
+  const location = sanitizeText(rawLoc)
+  const description = sanitizeText(e.description || '')
+  const eventUrl = String(e.event_url || e.url || e.link || '').trim()
+  const category = sanitizeText(e.category || e.type || '')
+  const price = sanitizeText(e.price || '')
+  const base = { title, date_info: dateInfo, time_start: timeStart, location, description, event_url: eventUrl, category, price }
+  return { ...base, id: computeId(base) }
 }
 
 function deriveTimestamp(dateInfo, timeStart) {
@@ -139,7 +157,18 @@ function isLikelyEvent(e) {
   const hasPlace = e.location && e.location.length > 3
   const hasDesc = e.description && e.description.length > 10
   const plausibleDate = (() => { try { return !!chrono.parseDate(String(e.date_info || '')) } catch { return false } })()
-  return titleOk && hasLink && hasPlace && hasDesc && plausibleDate
+  // Heuristic: prefer Chicago or IL mentions when domain not explicitly Chicago-focused
+  let chicagoHint = /\b(chicago|il)\b/i.test(String(e.location))
+  try {
+    const h = new URL(e.event_url).hostname
+    const chicagoDomains = [
+      'do312.com','timeout.com','choosechicago.com','chicago.gov','navypier.org','chicagoreader.com','chicagomag.com',
+      'cso.org','lyricopera.org','joffrey.org','chicagoshakes.com','auditoriumtheatre.org','harristheaterchicago.org','goodmantheatre.org','steppenwolf.org','lookingglasstheatre.org','broadwayinchicago.com','msg.com','the-chicago-theatre','unitedcenter.com','soldierfield.net','wintrustarena.com','creditunion1arena.com','metrochicago.com','thaliahallchicago.com','lh-st.com','schubas.com','subt.net','bottomlounge.com','reggieslive.com','sleeping-village.com','emptybottle.com','hideoutchicago.com','joesbar.com','parkwestchicago.com','houseofblues.com','saltshedchicago.com','rivieratheatre.com','victheatre.com','aragonballroom.org','copernicuscenter.org','secondcity.com','laughfactory.com','zanies.com','uchicago.edu','northwestern.edu','depaul.edu','uic.edu','luc.edu','colum.edu','iit.edu','artic.edu','fieldmuseum.org','lpzoo.org','msichicago.org','adlerplanetarium.org','sheddaquarium.org','chicagohistory.org','mcachicago.org','dusablemuseum.org','nationalmuseumofmexicanart.org','smartmuseum.uchicago.edu','garfieldconservatory.org','mocp.org','musicboxtheatre.com','musicboxfilm.com','chicagoathletichotel.com','chicagoartisanmarkets.com','randolphstreetmarket.com','chicagoparkdistrict.com','chipublib.org','navypier.org'
+    ]
+    if (chicagoDomains.some(d => h === d || h.endsWith('.'+d))) chicagoHint = true
+  } catch {}
+  const descOk = hasDesc || chicagoHint
+  return titleOk && hasLink && hasPlace && descOk && plausibleDate && chicagoHint
 }
 
 async function main() {
@@ -159,7 +188,12 @@ async function main() {
       const fromMicro = parseMicrodata($, url)
       const fromIcs = await parseIcsLinks($, url)
       for (const e of [...fromJsonLd, ...fromMicro, ...fromIcs]) {
-        if (isLikelyEvent(e)) results.push({ ...e, _ts: deriveTimestamp(e.date_info, e.time_start), source: 'universal_extraction', source_url: url, scraped_at: new Date().toISOString(), extraction_method: 'universal' })
+        if (isLikelyEvent(e)) {
+          const withTs = { ...e, _ts: deriveTimestamp(e.date_info, e.time_start) }
+          const withMeta = { ...withTs, source: 'universal_extraction', source_url: url, scraped_at: new Date().toISOString(), extraction_method: 'universal' }
+          const withId = withMeta.id ? withMeta : { ...withMeta, id: computeId(withMeta) }
+          results.push(withId)
+        }
       }
     } catch (e) {
       // ignore per-seed failures
