@@ -10,10 +10,10 @@
     "scrape": "node scripts/run-scrape.js",
     "consolidate": "node scripts/run-consolidate.js",
     "geocode": "node scripts/enrich-geocode.js",
-    "generate:data": "npm run scrape && npm run consolidate && npm run geocode",
+    "generate:data": "node scripts/build-universal.js",
     "extract:universal": "node scripts/universal-extract.js --seeds sources/seeds.txt --out public/data/events.universal.json",
     "merge:datasets": "node scripts/merge-datasets.js public/data/events.v2.json public/data/events.universal.json public/data/events.v3.json",
-    "validate:dataset": "node scripts/validate-dataset.js public/data/events.v3.json"
+    "validate:dataset": "node scripts/validate-dataset.js public/data/events.json"
   },
   "dependencies": {
     "cheerio": "^1.1.2",

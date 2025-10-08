@@ -36,8 +36,8 @@ export default function MapPage() {
   useEffect(() => {
     ;(async () => {
       const ts = Date.now()
-      const localUrl = `/data/events.v4.json?v=${ts}`
-      const rawUrl = `https://raw.githubusercontent.com/ekulkisnek/chi-events-pro/main/public/data/events.v4.json?${ts}`
+      const localUrl = `/data/events.json?v=${ts}`
+      const rawUrl = `https://raw.githubusercontent.com/ekulkisnek/chi-events-pro/main/public/data/events.json?${ts}`
       try {
         const res = await fetch(localUrl, { cache: 'no-store' })
         const data = await res.json()
@@ -130,8 +130,8 @@ export default function MapPage() {
         <div className="panel p-0 overflow-hidden">
           <MapContainer center={center} zoom={12} scrollWheelZoom={true} className="leaflet-container">
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="&copy; OpenStreetMap contributors" />
-            {filtered.filter(e => typeof e.latitude === 'number' && typeof e.longitude === 'number').map(e => (
-              <Marker key={e.id} position={[e.latitude as number, e.longitude as number]}>
+            {filtered.filter(e => typeof e.latitude === 'number' && typeof e.longitude === 'number').map((e, i) => (
+              <Marker key={e.id || `${e.latitude}-${e.longitude}-${i}`} position={[e.latitude as number, e.longitude as number]}>
                 <Popup>
                   <div className="col">
                     <div className="title">{e.title}</div>

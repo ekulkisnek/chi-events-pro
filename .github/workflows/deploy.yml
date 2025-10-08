@@ -13,7 +13,16 @@ jobs:
         with:
           node-version: '20'
       - run: npm ci
+      - name: Generate dataset
+        run: npm run generate:data
       - run: npm run build
+      - name: Commit dataset
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/events.json scripts/geocode-cache.json || true
+          git diff --staged --quiet || git commit -m "chore(data): push build dataset"
+          git push || true
       - name: Deploy to Vercel
         run: npx vercel --prod --token "$VERCEL_TOKEN"
         env:
