@@ -63,9 +63,34 @@ function deriveTimestamp(dateInfo, timeStart) {
 }
 
 async function fetchText(url) {
-  const res = await fetch(url, { headers: { 'User-Agent': 'chi-events-universal/1.0' } })
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), 20000)
+  const res = await fetch(url, { headers: { 'User-Agent': 'chi-events-universal/1.1' }, signal: controller.signal })
+  clearTimeout(timeout)
   if (!res.ok) throw new Error(`fetch failed ${res.status}`)
   return await res.text()
+}
+
+function collectCandidateLinks($, baseUrl) {
+  const out = new Set()
+  const base = new URL(baseUrl)
+  $('a[href]').each((_, el) => {
+    const href = String($(el).attr('href') || '').trim()
+    if (!href || href.startsWith('#') || href.startsWith('mailto:')) return
+    let u
+    try { u = new URL(href, base) } catch { return }
+    if (u.hostname !== base.hostname) return
+    const p = u.pathname.toLowerCase()
+    const isEventy = /(event|events|show|concert|performance|festival|opennight|exhibit|exhibition|game|match|\b[eE]\b|\/e\/)/.test(p)
+    if (!isEventy) return
+    out.add(u.toString())
+  })
+  // pagination hints
+  $('a[rel="next"], a:contains("Next"), a:contains("More"), a:contains("Older")').each((_, el) => {
+    const href = String($(el).attr('href') || '').trim()
+    try { const u = new URL(href, base); out.add(u.toString()) } catch {}
+  })
+  return Array.from(out)
 }
 
 function parseJsonLd($, baseUrl) {
@@ -175,35 +200,62 @@ async function main() {
   const args = process.argv.slice(2)
   const seedsIdx = args.indexOf('--seeds')
   const outIdx = args.indexOf('--out')
+  const daysIdx = args.indexOf('--days')
+  const crawlIdx = args.indexOf('--crawl')
+  const maxIdx = args.indexOf('--max-pages')
   const seedsPath = seedsIdx >= 0 ? args[seedsIdx + 1] : null
   const outPath = outIdx >= 0 ? args[outIdx + 1] : join(process.cwd(), 'public', 'data', 'events.universal.json')
+  const daysWindow = daysIdx >= 0 ? Math.max(0, Number(args[daysIdx + 1] || 0)) : 0
+  const enableCrawl = crawlIdx >= 0 ? String(args[crawlIdx + 1] || 'true').toLowerCase() !== 'false' : true
+  const maxPages = maxIdx >= 0 ? Math.max(1, Number(args[maxIdx + 1] || 60)) : 60
   if (!seedsPath) throw new Error('--seeds required')
   const seeds = readFileSync(seedsPath, 'utf8').split(/\r?\n/).map(s => s.trim()).filter(Boolean)
   const results = []
-  for (const url of seeds) {
-    try {
-      const html = await fetchText(url)
-      const $ = cheerioLoad(html)
-      const fromJsonLd = await parseJsonLd($, url)
-      const fromMicro = parseMicrodata($, url)
-      const fromIcs = await parseIcsLinks($, url)
-      for (const e of [...fromJsonLd, ...fromMicro, ...fromIcs]) {
-        if (isLikelyEvent(e)) {
-          const withTs = { ...e, _ts: deriveTimestamp(e.date_info, e.time_start) }
-          const withMeta = { ...withTs, source: 'universal_extraction', source_url: url, scraped_at: new Date().toISOString(), extraction_method: 'universal' }
-          const withId = withMeta.id ? withMeta : { ...withMeta, id: computeId(withMeta) }
-          results.push(withId)
+  for (const seed of seeds) {
+    const queue = [seed]
+    const visited = new Set()
+    while (queue.length && visited.size < maxPages) {
+      const url = queue.shift()
+      if (!url || visited.has(url)) continue
+      visited.add(url)
+      try {
+        const html = await fetchText(url)
+        const $ = cheerioLoad(html)
+        const fromJsonLd = await parseJsonLd($, url)
+        const fromMicro = parseMicrodata($, url)
+        const fromIcs = await parseIcsLinks($, url)
+        for (const e of [...fromJsonLd, ...fromMicro, ...fromIcs]) {
+          if (isLikelyEvent(e)) {
+            const withTs = { ...e, _ts: deriveTimestamp(e.date_info, e.time_start) }
+            const withMeta = { ...withTs, source: 'universal_extraction', source_url: url, scraped_at: new Date().toISOString(), extraction_method: 'universal' }
+            const withId = withMeta.id ? withMeta : { ...withMeta, id: computeId(withMeta) }
+            results.push(withId)
+          }
         }
-      }
-    } catch (e) {
-      // ignore per-seed failures
+        if (enableCrawl) {
+          for (const link of collectCandidateLinks($, url)) {
+            if (!visited.has(link) && queue.length + visited.size < maxPages) queue.push(link)
+          }
+        }
+      } catch {}
     }
   }
   // dedupe by title+date
-  const out = results.filter((e, idx, arr) => {
+  let out = results.filter((e, idx, arr) => {
     const key = `${String(e.title).toLowerCase().trim()}|${String(e.date_info || '').toLowerCase().trim()}`
     return arr.findIndex(x => `${String(x.title).toLowerCase().trim()}|${String(x.date_info || '').toLowerCase().trim()}` === key) === idx
   })
+  // optional date window filter (e.g., next N days)
+  if (daysWindow > 0) {
+    const now = new Date()
+    const max = new Date(now.getTime() + daysWindow * 24 * 3600 * 1000)
+    out = out.filter(e => {
+      const d = e._ts ? new Date(e._ts) : (e.date_info ? chrono.parseDate(String(e.date_info)) : null)
+      if (!d || isNaN(d.getTime())) return false
+      if (d < new Date(now.getTime() - 24 * 3600 * 1000)) return false
+      return d <= max
+    })
+  }
   writeFileSync(outPath, JSON.stringify(out, null, 2))
   console.log(`Universal extracted ${out.length} events -> ${outPath}`)
 }

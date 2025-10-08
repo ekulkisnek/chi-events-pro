@@ -21,8 +21,11 @@ function dedupe(arr) {
   })
 }
 
-// 1) Universal extract
-run('node scripts/universal-extract.js --seeds sources/seeds.txt --out public/data/events.universal.json')
+// 0) Expand seeds to include common pagination
+run('node scripts/expand-seeds.js sources/seeds.txt sources/seeds.generated.txt')
+
+// 1) Universal extract (crawl up to 200 pages across seeds, 120-day window)
+run('node scripts/universal-extract.js --seeds sources/seeds.generated.txt --out public/data/events.universal.json --crawl true --max-pages 200 --days 120')
 
 // 2) Merge with any committed datasets to boost coverage
 const seeds = [
