@@ -196,6 +196,24 @@ function isLikelyEvent(e) {
   return titleOk && hasLink && hasPlace && descOk && plausibleDate && chicagoHint
 }
 
+function extractPageDescription($) {
+  const cands = [
+    'meta[name="description"]',
+    'meta[property="og:description"]',
+    'meta[name="twitter:description"]'
+  ]
+  for (const sel of cands) {
+    const v = $(sel).attr('content')
+    if (v && String(v).trim().length > 10) return sanitizeText(v)
+  }
+  const article = $('article, .article, .event-detail, .event-content')
+  if (article && article.text()) {
+    const t = sanitizeText(article.text())
+    if (t.length > 40) return t
+  }
+  return ''
+}
+
 async function main() {
   const args = process.argv.slice(2)
   const seedsIdx = args.indexOf('--seeds')
@@ -226,7 +244,8 @@ async function main() {
         const fromIcs = await parseIcsLinks($, url)
         for (const e of [...fromJsonLd, ...fromMicro, ...fromIcs]) {
           if (isLikelyEvent(e)) {
-            const withTs = { ...e, _ts: deriveTimestamp(e.date_info, e.time_start) }
+            const fallbackDesc = (!e.description || e.description.length < 20) ? extractPageDescription($) : e.description
+            const withTs = { ...e, description: fallbackDesc || e.description, _ts: deriveTimestamp(e.date_info, e.time_start) }
             const withMeta = { ...withTs, source: 'universal_extraction', source_url: url, scraped_at: new Date().toISOString(), extraction_method: 'universal' }
             const withId = withMeta.id ? withMeta : { ...withMeta, id: computeId(withMeta) }
             results.push(withId)
