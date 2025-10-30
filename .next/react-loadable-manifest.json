@@ -1,0 +1,14 @@
+{
+  "app/map/page.tsx -> leaflet": {
+    "id": "app/map/page.tsx -> leaflet",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_leaflet_dist_leaflet-src_js.js"
+    ]
+  },
+  "app/map/page.tsx -> react-leaflet": {
+    "id": "app/map/page.tsx -> react-leaflet",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_react-leaflet_lib_index_js.js"
+    ]
+  }
+}

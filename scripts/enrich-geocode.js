@@ -18,9 +18,26 @@ if (existsSync(venuesPath)) {
 
 const index = venueMap.map(v => ({ name: String(v.name).toLowerCase(), lat: v.coordinates?.[0], lon: v.coordinates?.[1] }))
 
+function cleanLocationForGeocode(text) {
+  if (!text) return ''
+  return String(text)
+    // Remove common prefixes/suffixes
+    .replace(/^(at|@|location:)\s+/i, '')
+    .replace(/\s*(chicago|il|illinois)$/i, '')
+    // Remove HTML/CSS artifacts
+    .replace(/<[^>]+>/g, '')
+    .replace(/\{[^}]+\}/g, '')
+    .replace(/#[a-f0-9]{6,8}/gi, '')
+    // Clean up whitespace
+    .replace(/\s+/g, ' ')
+    .trim()
+    .substring(0, 150) // Reasonable max length
+}
+
 function tryMatchLocation(text) {
   if (!text) return null
-  const t = String(text).toLowerCase()
+  const cleaned = cleanLocationForGeocode(text)
+  const t = cleaned.toLowerCase()
   for (const v of index) {
     if (t.includes(v.name)) return { lat: v.lat, lon: v.lon }
   }
@@ -60,11 +77,13 @@ function looksLikeAddress(s) {
 
 let updated = 0
 let lookedUp = 0
-const MAX_LOOKUPS = 300
+const MAX_LOOKUPS = 500 // Increased to geocode more events
 
 for (const ev of events) {
   const hasLatLon = typeof ev.latitude === 'number' && typeof ev.longitude === 'number'
   if (hasLatLon) continue
+  
+  // Try venue matching first
   const m = tryMatchLocation(ev.location)
   if (m && typeof m.lat === 'number' && typeof m.lon === 'number') {
     ev.latitude = m.lat
@@ -72,10 +91,17 @@ for (const ev of events) {
     updated++
     continue
   }
+  
+  // Skip if we've hit lookup limit
   if (lookedUp >= MAX_LOOKUPS) continue
-  const q = looksLikeAddress(ev.location) ? ev.location : `${ev.location || ''}`
-  if (!q || q.length < 6) continue
-  // polite delay
+  
+  // Clean and prepare location for geocoding
+  const cleanedLoc = cleanLocationForGeocode(ev.location)
+  if (!cleanedLoc || cleanedLoc.length < 6) continue
+  
+  // Try geocoding
+  const q = looksLikeAddress(cleanedLoc) ? cleanedLoc : `${cleanedLoc}, Chicago, IL`
+  // polite delay for Nominatim rate limiting
   await new Promise(r => setTimeout(r, 1100))
   const geo = await geocodeNominatim(q)
   if (geo) {

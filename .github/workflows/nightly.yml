@@ -2,36 +2,39 @@ name: Nightly Scrape + Deploy
 
 on:
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '0 6 * * *' # 6 AM UTC daily
   workflow_dispatch:
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: '20'
           cache: npm
       - run: npm ci
-      - name: Clone scrapers (apify1)
-        run: |
-          git clone https://github.com/ekulkisnek/apify1 _external/apify1 || true
       - name: Generate dataset
         run: npm run generate:data
+      - name: Validate dataset
+        run: npm run validate:dataset public/data/events.json || true
       - name: Commit dataset
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/data/events.json scripts/geocode-cache.json || true
-          git commit -m "data: nightly refresh" || echo "No changes"
+          git diff --staged --quiet || git commit -m "chore(data): nightly refresh"
           git push || true
       - name: Deploy to Vercel
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          npx vercel pull --yes --environment=production --token=$VERCEL_TOKEN
-          npx vercel build --prod --token=$VERCEL_TOKEN
-          npx vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
+          if [ -n "$VERCEL_TOKEN" ]; then
+            npx vercel --token "$VERCEL_TOKEN" --prod --yes
+          else
+            echo "No VERCEL_TOKEN secret set; skipping deploy"
+          fi

@@ -134,12 +134,23 @@ async function parseIcsLinks($, baseUrl) {
 }
 
 function isLikelyEvent(e) {
-  const titleOk = e.title && e.title.length > 3
+  const titleOk = e.title && e.title.length > 3 && e.title.length < 200
   const hasLink = e.event_url && /^https?:\/\//.test(e.event_url)
-  const hasPlace = e.location && e.location.length > 3
+  const hasPlace = e.location && e.location.length > 3 && e.location.length < 200
   const hasDesc = e.description && e.description.length > 10
-  const plausibleDate = (() => { try { return !!chrono.parseDate(String(e.date_info || '')) } catch { return false } })()
-  return titleOk && hasLink && hasPlace && hasDesc && plausibleDate
+  const plausibleDate = (() => { 
+    try { 
+      const d = chrono.parseDate(String(e.date_info || ''))
+      if (!d) return false
+      // Check if date is reasonable (not too far in past or future)
+      const now = new Date()
+      const oneYearAgo = now.getTime() - 365*24*3600*1000
+      const twoYearsFuture = now.getTime() + 2*365*24*3600*1000
+      return d.getTime() >= oneYearAgo && d.getTime() <= twoYearsFuture
+    } catch { return false } 
+  })()
+  // Require at least title, link, and date. Location and description are nice-to-have
+  return titleOk && hasLink && plausibleDate && (hasPlace || hasDesc)
 }
 
 async function main() {

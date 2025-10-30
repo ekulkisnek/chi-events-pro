@@ -13,6 +13,8 @@ scrapers/**/storage/
 **/.cursor/
 **/.vercel/
 general-scraper/*.json
+public/data/events.general.json
+public/data/events.universal.json
 events/
 chicago_events_master_consolidated*.json
 public/data/events.json

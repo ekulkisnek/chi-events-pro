@@ -1,37 +1,20 @@
 import { execSync } from 'node:child_process'
-import { cpSync, mkdirSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 
-const SRC = join(process.cwd(), '..', '_external', 'apify1')
-const DEST = process.cwd()
+// Scrape events from seeds.txt using both universal extractor and general scraper
+const seedsPath = join(process.cwd(), 'sources', 'seeds.txt')
+const universalOut = join(process.cwd(), 'public', 'data', 'events.universal.json')
+const generalOut = join(process.cwd(), 'public', 'data', 'events.general.json')
 
-function run(cmd, cwd = DEST) {
+function run(cmd) {
   console.log(`$ ${cmd}`)
-  execSync(cmd, { stdio: 'inherit', cwd, env: { ...process.env, RUN_SCRAPERS: 'false' } })
+  execSync(cmd, { stdio: 'inherit' })
 }
 
-function copyIfNeeded() {
-  const dirs = [
-    'universal-ai-scraper',
-    'blockclub-chicago-scraper',
-    'chicago-park-district-scraper',
-    'chicago-tribune-scraper',
-    'timeout-chicago-scraper',
-    'choosechicago-scraper',
-    'do312-scraper',
-    'chicago-gov-scraper',
-    'universal-code-scraper',
-    'orchestrator.js',
-    'event-consolidator.js'
-  ]
-  for (const d of dirs) {
-    const from = join(SRC, d)
-    const to = join(DEST, d)
-    try {
-      cpSync(from, to, { recursive: true })
-    } catch {}
-  }
-}
+console.log('Scraping events from seeds using universal extractor...')
+run(`node scripts/universal-extract.js --seeds ${seedsPath} --out ${universalOut}`)
 
-copyIfNeeded()
-run('node orchestrator.js')
+console.log('\nScraping events using general HTML scraper...')
+run(`node scripts/general-scraper.js --seeds ${seedsPath} --out ${generalOut}`)
+
+console.log('\nScraping complete!')

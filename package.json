@@ -12,6 +12,7 @@
     "geocode": "node scripts/enrich-geocode.js",
     "generate:data": "npm run scrape && npm run consolidate && npm run geocode",
     "extract:universal": "node scripts/universal-extract.js --seeds sources/seeds.txt --out public/data/events.universal.json",
+    "scrape:general": "node scripts/general-scraper.js --seeds sources/seeds.txt --out public/data/events.general.json",
     "merge:datasets": "node scripts/merge-datasets.js public/data/events.v2.json public/data/events.universal.json public/data/events.v3.json",
     "validate:dataset": "node scripts/validate-dataset.js public/data/events.v3.json"
   },

@@ -1,32 +1,65 @@
-import { execSync } from 'node:child_process'
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import * as chrono from 'chrono-node'
 
-function run(cmd) { execSync(cmd, { stdio: 'inherit' }) }
-
-// Run consolidation to produce master files (use validator defaults, disable fuzzy for determinism)
-run('DEDUP_FUZZY=false node event-consolidator.js')
-
-// Copy events-only into public for the site
-const consolidatedEventsOnly = 'chicago_events_master_consolidated_events_only.json'
-const src = join(process.cwd(), consolidatedEventsOnly)
+// Read scraped events from both universal extractor and general scraper
+const universalSrc = join(process.cwd(), 'public', 'data', 'events.universal.json')
+const generalSrc = join(process.cwd(), 'public', 'data', 'events.general.json')
 const outDir = join(process.cwd(), 'public', 'data')
 if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true })
 const dest = join(outDir, 'events.json')
-let raw = readFileSync(src, 'utf8')
+
+function loadJsonFile(path) {
+  if (!existsSync(path)) return []
+  try {
+    const raw = readFileSync(path, 'utf8')
+    const parsed = JSON.parse(raw)
+    return Array.isArray(parsed) ? parsed : (parsed.events || [])
+  } catch (e) {
+    console.error(`Failed to read ${path}:`, e.message)
+    return []
+  }
+}
+
 let data = []
-try {
-  const parsed = JSON.parse(raw)
-  data = Array.isArray(parsed) ? parsed : parsed.events || []
-} catch {}
+const universalData = loadJsonFile(universalSrc)
+const generalData = loadJsonFile(generalSrc)
+
+console.log(`Loaded ${universalData.length} events from universal extractor`)
+console.log(`Loaded ${generalData.length} events from general scraper`)
+
+// Merge both sources
+data = [...universalData, ...generalData]
 
 // Normalize and filter obvious non-events
 const bannedTitleFragments = [
   'permit', 'application', 'foia', 'request', 'guide', 'inspection', 'framework', 'faq', 'templates', 'homepage',
   'view all news', 'press', 'program agreement', 'ordinance', 'executed', 'amendment', 'contract', 'agreement',
-  'notice', 'policy', 'standards'
+  'notice', 'policy', 'standards', 'municipal marketing', 'city council'
 ]
+
+// Clean location string - remove HTML, CSS, and other junk
+function cleanLocation(loc) {
+  if (!loc || typeof loc !== 'string') return ''
+  let cleaned = loc
+    // Remove CSS code
+    .replace(/#[a-f0-9]{6,8}/gi, '')
+    .replace(/[a-z-]+:\s*[^;]+;/gi, '')
+    .replace(/\.cds-[a-z-]+/gi, '')
+    .replace(/#cds-separator[0-9]+/gi, '')
+    // Remove HTML tags
+    .replace(/<[^>]+>/g, '')
+    // Remove CSS selectors
+    .replace(/\{[^}]+\}/g, '')
+    // Remove excessive whitespace
+    .replace(/\s+/g, ' ')
+    .trim()
+  // If it's still too long or looks like code, return empty
+  if (cleaned.length > 200 || cleaned.includes('font-family') || cleaned.includes('border:') || cleaned.includes('content:')) {
+    return ''
+  }
+  return cleaned
+}
 
 function hasPlausibleDate(ev) {
   const s = String(ev.date_info || '').toLowerCase()
@@ -60,6 +93,10 @@ function deriveTimestamp(dateInfo, timeStart) {
       d = candidate
     }
   }
+  // Filter out events more than 1 year in the past
+  if (d && d.getTime() < now.getTime() - 365*24*3600*1000) {
+    return null
+  }
   return d ? d.toISOString() : null
 }
 
@@ -78,9 +115,20 @@ function isTrustedChicagoSource(url) {
 const filtered = data
   .map(e => ({
     ...e,
-    event_url: e.event_url || e.url || e.source_url || ''
+    event_url: e.event_url || e.url || e.source_url || '',
+    location: cleanLocation(e.location)
   }))
   .map(e => {
+    // Clean description too
+    if (e.description) {
+      e.description = String(e.description)
+        .replace(/#cds-separator[0-9]+/g, '')
+        .replace(/<[^>]+>/g, '')
+        .replace(/\{[^}]+\}/g, '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .substring(0, 500) // Limit description length
+    }
     const hasLocation = typeof e.location === 'string' && e.location.trim().length > 3
     if (!hasLocation && isTrustedChicagoSource(e.event_url)) {
       return { ...e, location: 'Chicago' }
@@ -90,20 +138,39 @@ const filtered = data
   .filter(e => {
     const title = String(e.title || '').trim()
     const desc = String(e.description || '')
+    const loc = String(e.location || '').trim()
     const hasUrl = typeof e.event_url === 'string' && e.event_url.startsWith('http')
-    const hasLocation = typeof e.location === 'string' && e.location.trim().length > 3
+    const hasLocation = loc.length > 3 && loc.length < 200 // Reasonable location length
     const looksLikeAnnouncement = bannedTitleFragments.some(f => title.toLowerCase().includes(f))
       || desc.includes('#cds-separator') || desc.includes('console.log(')
+      || desc.includes('font-family') || desc.includes('border:')
+      || loc.includes('font-family') || loc.includes('border:')
     const plausible = hasPlausibleDate(e) || (e.time_start && e.time_start.length >= 3)
       || (() => { try { return !!chrono.parseDate(title + ' ' + String(e.date_info || '')) } catch { return false } })()
-    if (!title || !hasUrl) return false
+    
+    // Reject if no title, no URL, bad location, or looks like junk
+    if (!title || title.length < 3) return false
+    if (!hasUrl) return false
     if (!hasLocation && !isTrustedChicagoSource(e.event_url)) return false
     if (!plausible) return false
     if (looksLikeAnnouncement) return false
+    // Reject if description is too short or looks like code
+    if (desc.length < 10 || desc.includes('rgba(') || desc.includes('--vs-colors')) return false
+    
     return true
   })
   // Derive a sortable timestamp
   .map(e => ({ ...e, _ts: deriveTimestamp(e.date_info, e.time_start) }))
+  // Filter out events without valid dates or dates too far in the past
+  .filter(e => {
+    if (!e._ts) return false // Require valid timestamp
+    const eventDate = new Date(e._ts)
+    const now = new Date()
+    // Only keep events from 1 year ago to 2 years in the future
+    const oneYearAgo = now.getTime() - 365*24*3600*1000
+    const twoYearsFuture = now.getTime() + 2*365*24*3600*1000
+    return eventDate.getTime() >= oneYearAgo && eventDate.getTime() <= twoYearsFuture
+  })
   // Deduplicate again on (title + date_info)
   .filter((e, idx, arr) => {
     const normTitle = String(e.title).toLowerCase().trim()
